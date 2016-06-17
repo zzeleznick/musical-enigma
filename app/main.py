@@ -23,9 +23,9 @@ def allowed_file(filename):
 
 def serve():
     app.debug = True
-    # app.run(port=8000)
-    server = Server(app.wsgi_app)
-    server.serve(port=8000, host='localhost', open_url=True, debug=True)
+    app.run(port=8000)
+    # server = Server(app.wsgi_app)
+    # server.serve(port=8000, host='localhost', open_url=True, debug=True)
 
 @app.route('/api/<payload>', methods=['GET', 'POST'])
 def catch(payload):
@@ -33,10 +33,12 @@ def catch(payload):
     if request.method == "POST":
         content = request.get_json(silent=True)
         print "Received post with content %s" % content
-        webbrowser.open_new_tab("http://docs.python.org/")
+        url = content.get("url") if (content and content.get("url")) else "https://google.com"
+        webbrowser.open_new_tab(url)
         return jsonify(content) if content else "None"
     else:
         return redirect(url_for('catch_all', path = payload))
+
 
 @app.route('/')
 def hello():
@@ -47,8 +49,6 @@ def hello():
 @app.route('/<path:path>')
 def catch_all(path):
     return 'You want path: %s' % path
-
-#  curl -X POST -d '{"fizz": "buzz", "foo": "bar"}' http://github.zzz.ultrahook.com -H "Content-Type: application/json"
 
 if __name__ == '__main__':
     serve()
