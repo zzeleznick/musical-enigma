@@ -1,0 +1,58 @@
+* { font-family: 'brandon-grotesque', sans-serif; line-height:1.2; vertical-align:middle; }
+
+input, .card {
+  position:relative;
+  z-index:2;
+}
+
+.search {
+    text-align: center;
+}
+
+th {
+  padding: 5px 0px 5px 8px;
+  cursor: pointer;
+}
+
+th:hover{
+  color: gray;
+}
+input[type="text"] {
+    width: 35rem;
+    border: 0;
+    padding: .75rem 1rem;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px #aaa;
+    transition: .5s, margin-bottom .15s;
+    text-align: center;
+    font-size: 1.75rem;
+    /* position: fixed !important; */
+    margin: 0.5rem 0rem 3rem 0rem;
+}
+
+input[type="text"]:focus {
+  margin:0 1rem 1rem;
+  outline:0;
+}
+
+
+input[type="text"]:focus + header {
+  transform:translate3d(0,-10rem,0);
+  opacity:0;
+}
+
+th[data-active^=true]{
+    // color: blue;
+}
+
+[data-status^=pass] .status{
+    color: green;
+}
+
+[data-status^=fail] .status{
+    color: red;
+}
+
+[data-status^=fail] .status:before {
+    content: "*";
+}

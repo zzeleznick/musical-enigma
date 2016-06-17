@@ -1,0 +1,31 @@
+{
+  "name": "flask-test-project",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zzeleznick/",
+  "authors": [
+    "zzeleznick <zzeleznick@gmail.com>"
+  ],
+  "description": "learning frontend",
+  "main": "run.sh",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "jquery": "~2.1.3",
+    "react": "~15.0.0"
+  },
+  "devDependencies": {
+    "pure": "~0.6.0"
+  },
+   "directory": "./app/static/bower_components"
+}
